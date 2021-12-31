@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-philipjohn-pj-progress-bar {
+	border: 1px solid black;
+
+	.pj-progress {
+		display: flex;
+		background-color: black;
+    	color: white;
+		text-align: right;
+	
+		input[type="text"] {
+			width: inherit;
+			font: inherit;
+			background: transparent;
+			border: none;
+			color: inherit;
+		}
+	}
+}

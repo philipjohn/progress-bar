@@ -1,0 +1,25 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "philipjohn/pj-progress-bar",
+	"version": "0.1.0",
+	"title": "PJ's Progress Bar",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Simple progress bar.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"progress": {
+			"type": "integer",
+			"source": "text",
+			"selector": ".pj-progress-level",
+			"default": 50
+		}
+	},
+	"textdomain": "pj-progress-bar",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
