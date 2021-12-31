@@ -23,7 +23,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save(props) {
-	const { progress } = props.attributes
+	const { attributes } = props;
+	const { progress } = attributes;
 
 	const styleProgress = {
 		width: `${progress}%`

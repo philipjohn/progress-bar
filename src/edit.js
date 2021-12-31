@@ -32,8 +32,8 @@ import { NumberControl, TextControl } from '@wordpress/components';
  */
 export default function Edit(props) {
 
-	const { setAttributes } = props
-	const { progress } = props.attributes
+	const { setAttributes, attributes } = props
+	const { progress } = attributes
 
 	const blockProps = useBlockProps({
 		className: 'pj-progress-bar'
@@ -42,7 +42,9 @@ export default function Edit(props) {
 	const styleProgress = {
 		width: `${progress}%`
 	}
-	
+
+	console.log("progres", progress);
+
 	return (
 		<div {...blockProps}>
 			<div
@@ -51,7 +53,7 @@ export default function Edit(props) {
 			>
 				<TextControl
 					value={ progress }
-					onChange={ (newProgress) => setAttributes({progress:Number(newProgress)}) }
+					onChange={ (newProgress) => setAttributes({ progress: newProgress}) }
 					className='pj-progress-level'
 				/>
 				%

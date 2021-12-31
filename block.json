@@ -12,10 +12,7 @@
 	},
 	"attributes": {
 		"progress": {
-			"type": "integer",
-			"source": "text",
-			"selector": ".pj-progress-level",
-			"default": 50
+			"type": "string"
 		}
 	},
 	"textdomain": "pj-progress-bar",
