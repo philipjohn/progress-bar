@@ -53,7 +53,7 @@ export default function Edit(props) {
 			>
 				<TextControl
 					value={ progress }
-					onChange={ (newProgress) => setAttributes({ progress: newProgress}) }
+					onChange={ (newProgress) => setAttributes({ progress: Math.min(newProgress, 100) }) }
 					className='pj-progress-level'
 				/>
 				%
