@@ -7,14 +7,23 @@
 
  .wp-block-philipjohn-pj-progress-bar {
 	border: 1px solid black;
+	border-radius: 50px;
 
 	.pj-progress {
-		display: flex;
 		background-color: black;
     	color: white;
+		border-radius: 50px;
+		text-align: center;
+		min-width: 5em;
+
+		.pj-progress-strip {
+			display: inline-flex;
+			margin: 0 auto;
+		}
 
 		.pj-progress-level {
 			font-size: inherit;
+			margin-left: 0.5em;
 		}
 
 		.components-text-control__input {

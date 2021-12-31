@@ -34,8 +34,10 @@ export default function save(props) {
 			<div
 				className='pj-progress'
 				style={ styleProgress }
-				>
+			>
+				<div className='pj-progress-strip'>
 					<span className='pj-progress-level'>{progress}</span>%
+				</div>
 			</div>
 		</div>
 	);

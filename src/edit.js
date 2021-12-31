@@ -51,14 +51,16 @@ export default function Edit(props) {
 				className='pj-progress'
 				style={ styleProgress }
 			>
-				<TextControl
-					value={ progress }
-					onChange={ (newProgress) => setAttributes({
-						progress: JSON.stringify(Math.min(newProgress, 100))
-					}) }
-					className='pj-progress-level'
-				/>
-				%
+				<div className='pj-progress-strip'>
+					<TextControl
+						value={ progress }
+						onChange={ (newProgress) => setAttributes({
+							progress: JSON.stringify(Math.min(newProgress, 100))
+						}) }
+						className='pj-progress-level'
+					/>
+					%
+				</div>
 			</div>
 		</div>
 	);
