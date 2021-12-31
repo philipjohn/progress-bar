@@ -12,7 +12,8 @@
 	},
 	"attributes": {
 		"progress": {
-			"type": "string"
+			"type": "string",
+			"default": "50"
 		}
 	},
 	"textdomain": "pj-progress-bar",
