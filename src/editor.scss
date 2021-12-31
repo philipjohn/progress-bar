@@ -3,22 +3,3 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-
-.wp-block-philipjohn-pj-progress-bar {
-	border: 1px solid black;
-
-	.pj-progress {
-		display: flex;
-		background-color: black;
-    	color: white;
-	
-		input[type="text"] {
-			width: inherit;
-			font: inherit;
-			background: transparent;
-			border: none;
-			text-align: right;
-			color: inherit;
-		}
-	}
-}

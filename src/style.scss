@@ -12,14 +12,19 @@
 		display: flex;
 		background-color: black;
     	color: white;
-		text-align: right;
-	
-		input[type="text"] {
-			width: inherit;
+
+		.pj-progress-level {
+			font-size: inherit;
+		}
+
+		.components-text-control__input {
+			width: 2.5em;
 			font: inherit;
 			background: transparent;
 			border: none;
 			color: inherit;
+			line-height: 1em;
+			text-align: right;
 		}
 	}
 }
