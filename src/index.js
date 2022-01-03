@@ -34,7 +34,7 @@ registerBlockType('philipjohn/pj-progress-bar', {
 		barColour: 'background-color',
 		textColour: 'color',
 		borderColour: 'border-color',
-		barBackgroundColour: 'background-color'
+		barBackgroundColour: 'background-color',
 	})(Edit),
 
 	/**

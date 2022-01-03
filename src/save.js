@@ -25,59 +25,63 @@ import { useBlockProps, getColorClassName } from '@wordpress/block-editor';
 export default function save(props) {
 	const {
 		progress,
-		barColour, customBarColour,
-		barBackgroundColour, customBarBackgroundColour,
-		borderColour, customBorderColour,
-		textColour, customTextColour
+		barColour,
+		customBarColour,
+		barBackgroundColour,
+		customBarBackgroundColour,
+		borderColour,
+		customBorderColour,
+		textColour,
+		customTextColour,
 	} = props.attributes;
 
-	let divClass = 'pj-progress'
+	let divClass = 'pj-progress';
 	const divStyles = {
-		width: `${progress}%`
-	}
+		width: `${progress}%`,
+	};
 
 	if (barColour !== undefined) {
-		divClass += ' ' + getColorClassName('background-color', barColour)
+		divClass += ' ' + getColorClassName('background-color', barColour);
 	}
 	if (customBarColour !== undefined) {
-		divStyles.backgroundColor = customBarColour
+		divStyles.backgroundColor = customBarColour;
 	}
 
 	if (textColour !== undefined) {
-		divClass += ' ' + getColorClassName('color', textColour)
+		divClass += ' ' + getColorClassName('color', textColour);
 	}
 	if (customTextColour !== undefined) {
-		divStyles.color = customTextColour
+		divStyles.color = customTextColour;
 	}
 
-	let rootClass = 'pj-progress-bar'
-	const rootStyles = {}
+	let rootClass = 'pj-progress-bar';
+	const rootStyles = {};
 
 	if (borderColour !== undefined) {
-		rootClass += ' ' + getColorClassName('border-color', borderColour)
+		rootClass += ' ' + getColorClassName('border-color', borderColour);
 	}
 	if (customBorderColour !== undefined) {
-		rootStyles.borderColor = customBorderColour
+		rootStyles.borderColor = customBorderColour;
 	}
 
 	if (barBackgroundColour !== undefined) {
-		rootClass += ' ' + getColorClassName('background-color', barBackgroundColour)
+		rootClass +=
+			' ' + getColorClassName('background-color', barBackgroundColour);
 	}
 	if (customBarBackgroundColour !== undefined) {
-		rootStyles.backgroundColor = customBarBackgroundColour
+		rootStyles.backgroundColor = customBarBackgroundColour;
 	}
 
 	return (
-		<div { ...useBlockProps.save({
-			className: rootClass,
-			style: rootStyles
-		}) }>
-			<div
-				className={ divClass }
-				style={ divStyles }
-			>
-				<div className='pj-progress-strip'>
-					<span className='pj-progress-level'>{progress}</span>%
+		<div
+			{...useBlockProps.save({
+				className: rootClass,
+				style: rootStyles,
+			})}
+		>
+			<div className={divClass} style={divStyles}>
+				<div className="pj-progress-strip">
+					<span className="pj-progress-level">{progress}</span>%
 				</div>
 			</div>
 		</div>

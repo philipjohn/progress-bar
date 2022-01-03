@@ -11,7 +11,11 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { InspectorControls, PanelColorSettings, useBlockProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	PanelColorSettings,
+	useBlockProps,
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,103 +35,110 @@ import { TextControl } from '@wordpress/components';
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
-
 	const {
 		setAttributes,
-		barColour, setBarColour,
-		borderColour, setBorderColour,
-		textColour, setTextColour,
-		barBackgroundColour, setBarBackgroundColour
-	} = props
-	const { progress } = props.attributes
+		barColour,
+		setBarColour,
+		borderColour,
+		setBorderColour,
+		textColour,
+		setTextColour,
+		barBackgroundColour,
+		setBarBackgroundColour,
+	} = props;
+	const { progress } = props.attributes;
 
-	let divClass = 'pj-progress'
+	let divClass = 'pj-progress';
 	const divStyles = {
-		width: `${ progress }%`
-	}
+		width: `${progress}%`,
+	};
 
 	if (barColour !== undefined) {
 		if (barColour.class !== undefined) {
-			divClass += ' ' + barColour.class
+			divClass += ' ' + barColour.class;
 		} else {
-			divStyles.backgroundColor = barColour.color
+			divStyles.backgroundColor = barColour.color;
 		}
 	}
 
 	if (textColour !== undefined) {
 		if (textColour.class !== undefined) {
-			divClass += ' ' + textColour.class
+			divClass += ' ' + textColour.class;
 		} else {
-			divStyles.color = textColour.color
+			divStyles.color = textColour.color;
 		}
 	}
 
-	let rootClass = 'pj-progress-bar'
-	const rootStyles = {}
+	let rootClass = 'pj-progress-bar';
+	const rootStyles = {};
 
 	if (borderColour !== undefined) {
 		if (borderColour.class !== undefined) {
-			rootClass += ' ' + borderColour.class
+			rootClass += ' ' + borderColour.class;
 		} else {
-			rootStyles.borderColor = borderColour.color
+			rootStyles.borderColor = borderColour.color;
 		}
 	}
 
 	if (barBackgroundColour !== undefined) {
 		if (barBackgroundColour.class !== undefined) {
-			rootClass += ' ' + barBackgroundColour.class
+			rootClass += ' ' + barBackgroundColour.class;
 		} else {
-			rootStyles.backgroundColor = barBackgroundColour.color
+			rootStyles.backgroundColor = barBackgroundColour.color;
 		}
 	}
 
 	const blockProps = useBlockProps({
 		className: rootClass,
-		style: rootStyles
-	})
+		style: rootStyles,
+	});
 
 	return (
-		<div { ...blockProps }>
-			<div
-				className={ divClass }
-				style={ divStyles }
-			>
-				<div className='pj-progress-strip'>
+		<div {...blockProps}>
+			<div className={divClass} style={divStyles}>
+				<div className="pj-progress-strip">
 					<TextControl
-						value={ progress }
-						onChange={ (newProgress) => setAttributes({
-							progress: JSON.stringify(Math.min(newProgress, 100))
-						}) }
-						className='pj-progress-level'
+						value={progress}
+						onChange={(newProgress) =>
+							setAttributes({
+								progress: JSON.stringify(
+									Math.min(newProgress, 100)
+								),
+							})
+						}
+						className="pj-progress-level"
 					/>
 					%
 				</div>
 			</div>
 			<InspectorControls>
 				<PanelColorSettings
-					title={ __('Colour settings', 'pj-progress-bar') }
-					colorSettings={ [
+					title={__('Colour settings', 'pj-progress-bar')}
+					colorSettings={[
 						{
 							value: barColour.color,
 							onChange: setBarColour,
-							label: __('Bar colour', 'pj-progress-bar')
+							label: __('Bar colour', 'pj-progress-bar'),
 						},
 						{
 							value: barBackgroundColour.color,
 							onChange: setBarBackgroundColour,
-							label: __('Bar background colour', 'pj-progress-bar')
+							label: __(
+								'Bar background colour',
+								'pj-progress-bar'
+							),
 						},
 						{
 							value: borderColour.color,
 							onChange: setBorderColour,
-							label: __('Border colour', 'pj-progress-bar')
+							label: __('Border colour', 'pj-progress-bar'),
 						},
 						{
 							value: textColour.color,
 							onChange: setTextColour,
-							label: __('Text colour', 'pj-progress-bar')
-						}
-					] }
+							label: __('Text colour', 'pj-progress-bar'),
+						},
+					]}
 				/>
 			</InspectorControls>
 		</div>
