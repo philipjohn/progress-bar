@@ -32,6 +32,8 @@ import { TextControl } from '@wordpress/components';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
  *
+ * @param  {Object} props Props passed to the component.
+ *
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {

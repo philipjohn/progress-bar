@@ -5,17 +5,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
- .wp-block-philipjohn-pj-progress-bar {
-	border: 1px solid black;
-
-	&.is-style-rounded,
-	&.is-style-rounded .pj-progress {
-		border-radius: 50px;
-	}
+.wp-block-philipjohn-pj-progress-bar {
+	border: 1px solid #000;
 
 	.pj-progress {
-		background-color: black;
-    	color: white;
+		background-color: #000;
+		color: #fff;
 		text-align: center;
 		min-width: 5em;
 
@@ -35,8 +30,14 @@
 			background: transparent;
 			border: none;
 			color: inherit;
-			line-height: 1em;
+			line-height: 1;
 			text-align: right;
 		}
 	}
+
+	&.is-style-rounded,
+	&.is-style-rounded .pj-progress {
+		border-radius: 50px;
+	}
+
 }
