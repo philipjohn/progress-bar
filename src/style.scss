@@ -7,12 +7,15 @@
 
  .wp-block-philipjohn-pj-progress-bar {
 	border: 1px solid black;
-	border-radius: 50px;
+
+	&.is-style-rounded,
+	&.is-style-rounded .pj-progress {
+		border-radius: 50px;
+	}
 
 	.pj-progress {
 		background-color: black;
     	color: white;
-		border-radius: 50px;
 		text-align: center;
 		min-width: 5em;
 

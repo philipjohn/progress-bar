@@ -20,7 +20,23 @@
  *
  * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/writing-your-first-block-type/
  */
-function create_block_pj_progress_bar_block_init() {
+function pj_progress_bar_block_init()
+{
 	register_block_type( __DIR__ );
 }
-add_action( 'init', 'create_block_pj_progress_bar_block_init' );
+add_action('init', 'pj_progress_bar_block_init');
+
+/**
+ * Enqueue block styles
+ */
+function pj_progress_bar_editor_scripts()
+{
+	wp_enqueue_script(
+		'pj-progress-bar',
+		plugin_dir_url(__FILE__) . '/assets/js/block-styles.js',
+		array('wp-blocks', 'wp-dom'),
+		wp_get_theme()->get('Version'),
+		true
+	);
+}
+add_action('enqueue_block_editor_assets', 'pj_progress_bar_editor_scripts');
