@@ -14,6 +14,30 @@
 		"progress": {
 			"type": "string",
 			"default": "50"
+		},
+		"barColor": {
+			"type": "string"
+		},
+		"customBarColor": {
+			"type": "string"
+		},
+		"barBackgrondColor": {
+			"type": "string"
+		},
+		"customBarBackgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"customTextColor": {
+			"type": "string"
+		},
+		"borderColour": {
+			"type": "string"
+		},
+		"customBorderColour": {
+			"type": "string"
 		}
 	},
 	"textdomain": "pj-progress-bar",

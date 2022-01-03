@@ -19,6 +19,7 @@ import './style.scss';
  */
 import Edit from './edit';
 import save from './save';
+import { withColors } from '@wordpress/block-editor';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -29,7 +30,12 @@ registerBlockType('philipjohn/pj-progress-bar', {
 	/**
 	 * @see ./edit.js
 	 */
-	edit: Edit,
+	edit: withColors({
+		barColour: 'background-color',
+		textColour: 'color',
+		borderColour: 'border-color',
+		barBackgroundColour: 'background-color'
+	})(Edit),
 
 	/**
 	 * @see ./save.js

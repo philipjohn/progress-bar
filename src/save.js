@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, getColorClassName } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -23,17 +23,58 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save(props) {
-	const { progress } = props.attributes;
+	const {
+		progress,
+		barColour, customBarColour,
+		barBackgroundColour, customBarBackgroundColour,
+		borderColour, customBorderColour,
+		textColour, customTextColour
+	} = props.attributes;
 
-	const styleProgress = {
+	let divClass = 'pj-progress'
+	const divStyles = {
 		width: `${progress}%`
 	}
 
+	if (barColour !== undefined) {
+		divClass += ' ' + getColorClassName('background-color', barColour)
+	}
+	if (customBarColour !== undefined) {
+		divStyles.backgroundColor = customBarColour
+	}
+
+	if (textColour !== undefined) {
+		divClass += ' ' + getColorClassName('color', textColour)
+	}
+	if (customTextColour !== undefined) {
+		divStyles.color = customTextColour
+	}
+
+	let rootClass = 'pj-progress-bar'
+	const rootStyles = {}
+
+	if (borderColour !== undefined) {
+		rootClass += ' ' + getColorClassName('border-color', borderColour)
+	}
+	if (customBorderColour !== undefined) {
+		rootStyles.borderColor = customBorderColour
+	}
+
+	if (barBackgroundColour !== undefined) {
+		rootClass += ' ' + getColorClassName('background-color', barBackgroundColour)
+	}
+	if (customBarBackgroundColour !== undefined) {
+		rootStyles.backgroundColor = customBarBackgroundColour
+	}
+
 	return (
-		<div {...useBlockProps.save()}>
+		<div { ...useBlockProps.save({
+			className: rootClass,
+			style: rootStyles
+		}) }>
 			<div
-				className='pj-progress'
-				style={ styleProgress }
+				className={ divClass }
+				style={ divStyles }
 			>
 				<div className='pj-progress-strip'>
 					<span className='pj-progress-level'>{progress}</span>%
